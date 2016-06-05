@@ -1,0 +1,86 @@
+<atlassian-plugin key="com.scuilion.confluence.macro"
+                  name="${project.name}"
+                  plugins-version="2">
+    <!--key="${project.groupId}.${project.artifactId}"-->
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="stash-macro"/>
+    <resource type="download" name="images/" location="/images"/>
+
+    <!-- add our web resources -->
+    <web-resource key="stash-macro-resources"
+                  name="stash-macro Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <context>editor</context>
+        <dependency>confluence.editor.actions:editor-macro-browser</dependency>
+        <context>editor</context>
+        <resource type="download"
+                  name="stash-macro.css"
+                  location="/css/stash-macro.css"/>
+        <resource type="download"
+                  name="stash-macro.js"
+                  location="/js/stash-macro.js"/>
+
+    </web-resource>
+
+    <xhtml-macro name="stash-macro"
+                 title="Some stash repo/branch"
+                 class="com.scuilion.confluence.macro.StashMacro"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/browserLogo.png"
+                 key="stash-macro">
+        <!--<description>List branches from repo.</description>-->
+        <category name="development"/>
+        <parameters>
+            <parameter name="title" type="string" required="true">
+                <option key="showNameInPlaceholder" value="false"/>
+                <option key="showValueInPlaceholder" value="true"/>
+            </parameter>
+            <parameter name="size" type="enum" required="true" default="small">
+                <value name="SMALL" />
+                <value name="MEDIUM" />
+                <value name="LARGE" />
+            </parameter>
+            <parameter name="page" type="confluence-content" required="false" multiple="false" />
+            <parameter name="name-override" type="string" required="false" />
+        </parameters>
+
+    </xhtml-macro>
+
+    <!-- import from the product container -->
+    <component key="stashConnectService"
+               class="com.scuilion.confluence.macro.StashConnectImpl"
+               interface="com.scuilion.confluence.macro.StashConnectImpl"/>
+
+    <component-import key="applicationProperties"
+                      interface="com.atlassian.sal.api.ApplicationProperties"/>
+
+    <component-import key="applicationLinkService"
+                      interface="com.atlassian.applinks.api.ApplicationLinkService"/>
+    <component-import key="entityLinkService"
+                      interface="com.atlassian.applinks.api.EntityLinkService"/>
+    <component-import key="i18nResolver"
+                      interface="com.atlassian.sal.api.message.I18nResolver"/>
+    <component-import key="authenticationConfigurationManager"
+                      interface="com.atlassian.applinks.spi.auth.AuthenticationConfigurationManager"/>
+    <component-import key="pluginAccessor"
+                      interface="com.atlassian.plugin.PluginAccessor"/>
+    <component-import key="pluginController"
+                      interface="com.atlassian.plugin.PluginController"/>
+    <component-import key="txTemplate"
+                      interface="com.atlassian.sal.api.transaction.TransactionTemplate"/>
+    <component-import key="pluginSettingsFactory"
+                      interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory"/>
+    <component-import key="loginUriProvider"
+                      interface="com.atlassian.sal.api.auth.LoginUriProvider"/>
+    <component-import key="userManager"
+                      interface="com.atlassian.sal.api.user.UserManager"/>
+    <component-import key="pluginLicenseManager"
+                      interface="com.atlassian.upm.api.license.PluginLicenseManager"/>
+</atlassian-plugin>
