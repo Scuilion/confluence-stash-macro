@@ -14,11 +14,15 @@
     <resource type="i18n" name="i18n" location="stash-macro"/>
     <resource type="download" name="images/" location="/images"/>
 
+    <rest name="My Rest Resource" i18n-name-key="my-rest-resource.name" key="my-rest-resource" path="/myrestresource" version="1.0">
+        <description key="my-rest-resource.description">The My Rest Resource Plugin</description>
+    </rest>
+
     <!-- add our web resources -->
     <web-resource key="stash-macro-resources"
                   name="stash-macro Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
         <context>editor</context>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
         <dependency>confluence.editor.actions:editor-macro-browser</dependency>
         <context>editor</context>
         <resource type="download"
@@ -33,9 +37,8 @@
     <xhtml-macro name="stash-macro"
                  title="Some stash repo/branch"
                  class="com.scuilion.confluence.macro.StashMacro"
-                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/browserLogo.png"
+                 icon="images/browserLogo.png"
                  key="stash-macro">
-        <!--<description>List branches from repo.</description>-->
         <category name="development"/>
         <parameters>
             <parameter name="title" type="string" required="true">
@@ -47,7 +50,7 @@
                 <value name="MEDIUM" />
                 <value name="LARGE" />
             </parameter>
-            <parameter name="page" type="confluence-content" required="false" multiple="false" />
+            <parameter name="page" type="string" required="false" multiple="false" />
             <parameter name="name-override" type="string" required="false" />
         </parameters>
 

@@ -34,6 +34,12 @@
             <artifactId>gson</artifactId>
             <version>2.2.2-atlassian-1</version>
         </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins.rest</groupId>
+            <artifactId>atlassian-rest-common</artifactId>
+            <version>${confluence.rest-common.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -54,6 +60,11 @@
                     <allowGoogleTracking>false</allowGoogleTracking>
                     <skipManifestValidation>true</skipManifestValidation>
                     <extractDependencies>false</extractDependencies>
+                    <pluginArtifact>
+                        <groupId>com.atlassian.labs.plugins</groupId>
+                        <artifactId>quickreload</artifactId>
+                        <version>${quick.reload.version}</version>
+                    </pluginArtifact>
                     <products>
 
                         <product>
@@ -107,8 +118,9 @@
         <confluence.data.version>5.8.9</confluence.data.version>
         <amps.version>6.2.4</amps.version>
         <plugin.testrunner.version>2.0.0</plugin.testrunner.version>
-        <quick.reload.version>1.30.2</quick.reload.version>
+        <quick.reload.version>1.30.4</quick.reload.version>
         <atlassian.upm.version>2.18.4</atlassian.upm.version>
+        <confluence.rest-common.version>5.0.1</confluence.rest-common.version>
     </properties>
 
 </project>
