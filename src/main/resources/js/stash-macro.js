@@ -1,4 +1,6 @@
-(function($) {
+// (function($) {
+
+    console.log("loading stash-macro.js")
     // var StashMacro = function() {};
     //
     // StashMacro.prototype.fields = {
@@ -25,7 +27,7 @@
                         "string" : {
                             "name-override" : function(params,options){
                                 var field = AJS.MacroBrowser.ParameterFields["string"](params, options);
-                                field.setValue(response['value']);
+                                field.setValue(response);
                                 console.log( response);
                                 return field;
                             }
@@ -51,4 +53,4 @@
     };
     callRest();
     // AJS.MacroBrowser.setMacroJsOverride("stash-macro", jsOverrides);
-})(AJS.$);
+// })(AJS.$);

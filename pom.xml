@@ -46,11 +46,12 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-confluence-plugin</artifactId>
+                <!--<artifactId>maven-amps-plugin</artifactId>-->
                 <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <productVersion>${confluence.version}</productVersion>
-                    <productDataVersion>${confluence.data.version}</productDataVersion>
+                    <!--<productVersion>${confluence.version}</productVersion>-->
+                    <!--<productDataVersion>${confluence.data.version}</productDataVersion>-->
 
                     <!-- make AMPS faster -->
                     <enableFastdev>false</enableFastdev>
@@ -60,15 +61,11 @@
                     <allowGoogleTracking>false</allowGoogleTracking>
                     <skipManifestValidation>true</skipManifestValidation>
                     <extractDependencies>false</extractDependencies>
-                    <pluginArtifact>
-                        <groupId>com.atlassian.labs.plugins</groupId>
-                        <artifactId>quickreload</artifactId>
-                        <version>${quick.reload.version}</version>
-                    </pluginArtifact>
                     <products>
 
                         <product>
                             <id>confluence</id>
+                            <instanceId>confluence</instanceId>
                             <version>${confluence.version}</version>
                             <!--<log4jProperties>src/test/resources/log4j-confluence.properties</log4jProperties>-->
                             <systemPropertyVariables>
@@ -88,11 +85,19 @@
                                     <version>${atlassian.upm.version}</version>
                                 </bundledArtifact>
                             </bundledArtifacts>
+                            <applications>
+                                <application>
+                                    <applicationKey>confluence-software</applicationKey>
+                                    <version>${confluence.version}</version>
+                                </application>
+                            </applications>
                         </product>
                         <product>
                             <id>stash</id>
+                            <instanceId>stash</instanceId>
                             <version>${confluence.version}</version>
                             <!--<log4jProperties>src/test/resources/log4j-confluence.properties</log4jProperties>-->
+                            <productDataPath>${project.basedir}/src/test/resources/generated-test-resource.zip</productDataPath>
                             <systemPropertyVariables>
                                 <product>stash</product>
                             </systemPropertyVariables>
@@ -106,8 +111,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -120,6 +125,7 @@
         <plugin.testrunner.version>2.0.0</plugin.testrunner.version>
         <quick.reload.version>1.30.4</quick.reload.version>
         <atlassian.upm.version>2.18.4</atlassian.upm.version>
+
         <confluence.rest-common.version>5.0.1</confluence.rest-common.version>
     </properties>
 
