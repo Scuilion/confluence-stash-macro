@@ -1,0 +1,251 @@
+Executing: /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/bin/mvn com.atlassian.maven.plugins:maven-amps-dispatcher-plugin:6.2.4:run -gs /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml -Dproduct='stash' --settings /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml -Dhttp.port='7990'
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building confluence-stash-plugin 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> maven-amps-dispatcher-plugin:6.2.4:run (default-cli) @ stash-macro >>>
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:compress-resources (default-compress-resources) @ stash-macro ---
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling javascript using YUI
+[INFO] 0 Javascript file(s) were minified into target directory /home/kevino/projects/confluence-stash-macro/target/classes
+[INFO] 0 CSS file(s) were minified into target directory /home/kevino/projects/confluence-stash-macro/target/classes
+[INFO] Compressing XML files
+[INFO] 0 XML file(s) were minified into target directory /home/kevino/projects/confluence-stash-macro/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.0:resources (default-resources) @ stash-macro ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] ignoreDelta true
+[INFO] Copying 8 resources
+[INFO] Copying file js/stash-macro.js
+[INFO] Copying file stash-macro.properties
+[INFO] Copying file atlassian-plugin.xml
+[INFO] Copying file images/browserLogo.png
+[INFO] Copying file images/pluginLogo.png
+[INFO] Copying file images/pluginIcon.png
+[INFO] Copying file templates/branches-with-filters.vm
+[INFO] Copying file css/stash-macro.css
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:filter-plugin-descriptor (default-filter-plugin-descriptor) @ stash-macro ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ stash-macro ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:generate-rest-docs (default-generate-rest-docs) @ stash-macro ---
+[INFO] Skipping generation of the REST docs
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.0:testResources (default-testResources) @ stash-macro ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] ignoreDelta true
+[INFO] Copying 1 resource
+[INFO] Copying file stash-generated-test-resources.zip
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:filter-test-plugin-descriptor (default-filter-test-plugin-descriptor) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ stash-macro ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:unit-test (default-unit-test) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:copy-bundled-dependencies (default-copy-bundled-dependencies) @ stash-macro ---
+[INFO] gson-2.2.2-atlassian-1.jar already exists in destination.
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:copy-test-bundled-dependencies (default-copy-test-bundled-dependencies) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:generate-manifest (default-generate-manifest) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:generate-test-manifest (default-generate-test-manifest) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:validate-manifest (default-validate-manifest) @ stash-macro ---
+[INFO] No manifest found or validation skip flag specified, skipping validation
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:jar (default-jar) @ stash-macro ---
+[INFO] Building jar: /home/kevino/projects/confluence-stash-macro/target/stash-macro-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:generate-obr-artifact (default-generate-obr-artifact) @ stash-macro ---
+[INFO] Skipping OBR generation... no OSGi bundle manifest instructions found in pom.xml
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:validate-test-manifest (default-validate-test-manifest) @ stash-macro ---
+[INFO] 
+[INFO] --- maven-amps-plugin:6.2.4:test-jar (default-test-jar) @ stash-macro ---
+[INFO] 
+[INFO] <<< maven-amps-dispatcher-plugin:6.2.4:run (default-cli) @ stash-macro <<<
+[INFO] 
+[INFO] --- maven-amps-dispatcher-plugin:6.2.4:run (default-cli) @ stash-macro ---
+[INFO] 
+[INFO] Starting stash...
+[INFO] Configured Artifact: com.atlassian.stash:stash-webapp:3.11.6:war
+[INFO] Copying stash-webapp-3.11.6.war to /home/kevino/projects/confluence-stash-macro/target/stash/stash-original.war
+[INFO] Configured Artifact: com.atlassian.pdkinstall:pdkinstall-plugin:0.6:jar
+[INFO] Copying pdkinstall-plugin-0.6.jar to /home/kevino/projects/confluence-stash-macro/target/stash/home/shared/plugins/installed-plugins/pdkinstall-plugin-0.6.jar
+[INFO] Configured Artifact: org.apache.felix:org.apache.felix.webconsole:1.2.8:jar
+[INFO] Copying org.apache.felix.webconsole-1.2.8.jar to /home/kevino/projects/confluence-stash-macro/target/stash/home/shared/plugins/installed-plugins/org.apache.felix.webconsole-1.2.8.jar
+[INFO] Configured Artifact: org.apache.felix:org.osgi.compendium:1.2.0:jar
+[INFO] Copying org.osgi.compendium-1.2.0.jar to /home/kevino/projects/confluence-stash-macro/target/stash/home/shared/plugins/installed-plugins/org.osgi.compendium-1.2.0.jar
+[INFO] Configured Artifact: com.atlassian.labs.httpservice:httpservice-bridge:0.6.2:jar
+[INFO] Copying httpservice-bridge-0.6.2.jar to /home/kevino/projects/confluence-stash-macro/target/stash/home/shared/plugins/installed-plugins/httpservice-bridge-0.6.2.jar
+[INFO] Reusing unpacked container 'tomcat8x' from /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x
+[INFO] Starting stash on the tomcat8x container on ports 7990 (http), 39407 (rmi) and 33264 (ajp)
+[INFO] using codehaus cargo v1.4.7
+[INFO] [2.ContainerStartMojo] Resolved container artifact org.codehaus.cargo:cargo-core-container-tomcat:jar:1.4.7 for container tomcat8x
+[INFO] [talledLocalContainer] Tomcat 8.x starting...
+[INFO] [stalledLocalDeployer] Deploying [/home/kevino/projects/confluence-stash-macro/target/stash/stash.war] to [/home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps]...
+[INFO] [talledLocalContainer] Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+[INFO] [talledLocalContainer] Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=48m; support was removed in 8.0
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:47 PM org.apache.catalina.startup.ClassLoaderFactory validateFile
+[WARNING] [talledLocalContainer] WARNING: Problem with directory [/home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/common/classes], exists: [false], isDirectory: [false], canRead: [false]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:47 PM org.apache.catalina.startup.ClassLoaderFactory validateFile
+[WARNING] [talledLocalContainer] WARNING: Problem with directory [/home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/common/lib], exists: [false], isDirectory: [false], canRead: [false]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:47 PM org.apache.catalina.startup.ClassLoaderFactory validateFile
+[WARNING] [talledLocalContainer] WARNING: Problem with directory [/home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/shared/classes], exists: [false], isDirectory: [false], canRead: [false]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:47 PM org.apache.catalina.startup.ClassLoaderFactory validateFile
+[WARNING] [talledLocalContainer] WARNING: Problem with directory [/home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/shared/lib], exists: [false], isDirectory: [false], canRead: [false]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.core.AprLifecycleListener init
+[INFO] [talledLocalContainer] INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/lib/oracle/12.1/client64/lib/:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.startup.SetAllPropertiesRule begin
+[WARNING] [talledLocalContainer] WARNING: [SetAllPropertiesRule]{Server/Service/Connector} Setting property 'emptySessionPath' to 'true' did not find a matching property.
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.tomcat.util.digester.SetPropertiesRule begin
+[WARNING] [talledLocalContainer] WARNING: [SetPropertiesRule]{Server/Service/Engine/Host/Valve} Setting property 'resolveHosts' to 'false' did not find a matching property.
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.coyote.AbstractProtocol init
+[INFO] [talledLocalContainer] INFO: Initializing ProtocolHandler ["http-nio-7990"]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+[INFO] [talledLocalContainer] INFO: Using a shared selector for servlet write/read
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.coyote.AbstractProtocol init
+[INFO] [talledLocalContainer] INFO: Initializing ProtocolHandler ["ajp-nio-33264"]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.tomcat.util.net.NioSelectorPool getSharedSelector
+[INFO] [talledLocalContainer] INFO: Using a shared selector for servlet write/read
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.startup.Catalina load
+[INFO] [talledLocalContainer] INFO: Initialization processed in 994 ms
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.core.StandardService startInternal
+[INFO] [talledLocalContainer] INFO: Starting service Catalina
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.core.StandardEngine startInternal
+[INFO] [talledLocalContainer] INFO: Starting Servlet Engine: Apache Tomcat/8.0.9
+[INFO] [talledLocalContainer] Jun 05, 2016 10:34:48 PM org.apache.catalina.startup.HostConfig deployWAR
+[INFO] [talledLocalContainer] INFO: Deploying web application archive /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/stash.war
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:02 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: Spring WebApplicationInitializers detected on classpath: [com.atlassian.stash.internal.spring.StashWebApplicationInitializer@6ec728ac]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:03 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: Installing JUL to SLF4J bridge
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:04 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: org.tuckey.web.filters.urlrewrite.UrlRewriteFilter INFO: conf reload check disabled
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:04 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: org.tuckey.web.filters.urlrewrite.UrlRewriteFilter INFO: status display disabled
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:04 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: org.tuckey.web.filters.urlrewrite.UrlRewriteFilter INFO: loaded (conf ok)
+[INFO] [talledLocalContainer] Jun 05, 2016 10:35:04 PM org.apache.catalina.core.ApplicationContext log
+[INFO] [talledLocalContainer] INFO: Initializing Spring FrameworkServlet 'springMvc'
+[INFO] [talledLocalContainer] 2016-06-05 22:35:08,023 INFO  [spring-startup]  c.a.s.i.server.BuildInfoLogger Starting Stash 3.11.6 (0de70a9 built on Mon Dec 21 01:37:46 CST 2015)
+[INFO] [talledLocalContainer] 2016-06-05 22:35:08,030 INFO  [spring-startup]  c.a.s.i.server.BuildInfoLogger JVM: Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 1.8.0_73-b02
+[INFO] [talledLocalContainer] 2016-06-05 22:35:08,074 INFO  [spring-startup]  c.a.s.internal.home.HomeLockAcquirer Successfully acquired lock on home directory /home/kevino/projects/confluence-stash-macro/target/stash/home
+[INFO] [talledLocalContainer] 2016-06-05 22:35:11,017 WARN  [spring-startup]  com.jolbox.bonecp.BoneCPConfig JDBC password not set in driver properties, copying it from pool config
+[INFO] [talledLocalContainer] 2016-06-05 22:35:14,074 INFO  [spring-startup]  c.a.s.internal.home.HomeLockAcquirer Successfully acquired lock on home directory /home/kevino/projects/confluence-stash-macro/target/stash/home/shared
+[INFO] [talledLocalContainer] 2016-06-05 22:35:16,447 WARN  [spring-startup]  com.hazelcast.instance.Node [172.17.0.1]:5701 [kevino] [3.4.2-atlassian-17] No join method is enabled! Starting standalone.
+[INFO] [talledLocalContainer] 2016-06-05 22:35:45,496 INFO  [hz.hazelcast.event-2]  com.atlassian.stash.internal.project Switching to log level [WARN]
+[INFO] [talledLocalContainer] 2016-06-05 22:35:45,504 INFO  [hz.hazelcast.event-5]  c.a.stash.internal.scm.git.command Switching to log level [WARN]
+[INFO] [talledLocalContainer] 2016-06-05 22:35:47,573 INFO  [spring-startup]  c.a.s.i.hook.DefaultHookService Hook callback socket listening on 127.0.0.1:39931
+[INFO] [talledLocalContainer] 2016-06-05 22:36:00,462 WARN  [spring-startup]  c.a.p.o.f.t.s.ScanDescriptorForHostClassesStage The plugin 'atlassian-universal-plugin-manager-plugin-2.18.4.jar' uses a package 'org.apache.commons.fileupload.servlet' that is also exported by the application.  It is highly recommended that the plugin use its own packages.
+[INFO] [talledLocalContainer] 2016-06-05 22:36:09,323 INFO  [ThreadPoolAsyncTaskExecutor::Thread 18]  c.a.s.i.s.g.t.DefaultTranscodeServer Callback socket listening at 127.0.0.1:41965
+[INFO] [talledLocalContainer] 2016-06-05 22:36:13,715 WARN  [ThreadPoolAsyncTaskExecutor::Thread 45]  c.a.p.a.spring 
+[INFO] [talledLocalContainer] Spring context started for bundle : com.atlassian.plugins.atlassian-remote-event-common-plugin id(38) v(1.0.8.D20151026T212826) reference:file:/home/kevino/projects/confluence-stash-macro/target/stash/home/plugins/.bundled-plugins/atlassian-remote-event-common-plugin-1.0.8-D20151026T212826.jar
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] If you want to debug the Spring wiring of your code then set a DEBUG level log level as follows.  [ This is a dev.mode only message. ]
+[INFO] [talledLocalContainer] 	log4j.logger.com.atlassian.plugins.atlassian-remote-event-common-plugin.spring  = DEBUG, console, filelog
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] 2016-06-05 22:36:14,973 WARN  [ThreadPoolAsyncTaskExecutor::Thread 9]  c.a.p.a.spring 
+[INFO] [talledLocalContainer] Spring context started for bundle : com.atlassian.plugins.atlassian-remote-event-consumer-plugin id(39) v(1.0.8.D20151026T212826) reference:file:/home/kevino/projects/confluence-stash-macro/target/stash/home/plugins/.bundled-plugins/atlassian-remote-event-consumer-plugin-1.0.8-D20151026T212826.jar
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] If you want to debug the Spring wiring of your code then set a DEBUG level log level as follows.  [ This is a dev.mode only message. ]
+[INFO] [talledLocalContainer] 	log4j.logger.com.atlassian.plugins.atlassian-remote-event-consumer-plugin.spring  = DEBUG, console, filelog
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] 2016-06-05 22:36:15,022 WARN  [ThreadPoolAsyncTaskExecutor::Thread 39]  c.a.p.a.spring 
+[INFO] [talledLocalContainer] Spring context started for bundle : com.atlassian.plugins.atlassian-remote-event-producer-plugin id(40) v(1.0.8.D20151026T212826) reference:file:/home/kevino/projects/confluence-stash-macro/target/stash/home/plugins/.bundled-plugins/atlassian-remote-event-producer-plugin-1.0.8-D20151026T212826.jar
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] If you want to debug the Spring wiring of your code then set a DEBUG level log level as follows.  [ This is a dev.mode only message. ]
+[INFO] [talledLocalContainer] 	log4j.logger.com.atlassian.plugins.atlassian-remote-event-producer-plugin.spring  = DEBUG, console, filelog
+[INFO] [talledLocalContainer] 
+[INFO] [talledLocalContainer] 2016-06-05 22:36:19,394 WARN  [spring-startup]  c.a.s.i.p.OsgiBundledPathScanner Cannot scan directory /com/atlassian/oauth/shared/servlet/ in bundle com.atlassian.oauth.atlassian-oauth-service-provider-plugin as it does not exist
+[INFO] [talledLocalContainer] 2016-06-05 22:36:27,078 INFO  [spring-startup]  c.a.s.internal.scm.PluginScmService Stash is using /usr/bin/git version 2.5.0
+[INFO] [talledLocalContainer] 2016-06-05 22:36:28,210 INFO  [spring-startup]  c.a.s.internal.ssh.server.SshServer Starting SSH server on port 7999...
+[INFO] [talledLocalContainer] 2016-06-05 22:36:28,304 INFO  [spring-startup]  c.a.s.internal.ssh.server.SshServer Started SSH server successfully.
+[INFO] [talledLocalContainer] 2016-06-05 22:36:28,412 INFO  [spring-startup]  c.a.s.i.hazelcast.HazelcastLifecycle Updating Hazelcast instance capabilities
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployWAR
+[INFO] [talledLocalContainer] INFO: Deployment of web application archive /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/stash.war has finished in 100,010 ms
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployWAR
+[INFO] [talledLocalContainer] INFO: Deploying web application archive /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/cargocpc.war
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployWAR
+[INFO] [talledLocalContainer] INFO: Deployment of web application archive /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/cargocpc.war has finished in 106 ms
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+[INFO] [talledLocalContainer] INFO: Deploying web application directory /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/manager
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+[INFO] [talledLocalContainer] INFO: Deployment of web application directory /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/manager has finished in 56 ms
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+[INFO] [talledLocalContainer] INFO: Deploying web application directory /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/host-manager
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.catalina.startup.HostConfig deployDirectory
+[INFO] [talledLocalContainer] INFO: Deployment of web application directory /home/kevino/projects/confluence-stash-macro/target/container/tomcat8x/cargo-stash-home/webapps/host-manager has finished in 39 ms
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:28 PM org.apache.coyote.AbstractProtocol start
+[INFO] [talledLocalContainer] INFO: Starting ProtocolHandler ["http-nio-7990"]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:29 PM org.apache.coyote.AbstractProtocol start
+[INFO] [talledLocalContainer] INFO: Starting ProtocolHandler ["ajp-nio-33264"]
+[INFO] [talledLocalContainer] Jun 05, 2016 10:36:29 PM org.apache.catalina.startup.Catalina start
+[INFO] [talledLocalContainer] INFO: Server startup in 100303 ms
+[INFO] [talledLocalContainer] Tomcat 8.x started on port [7990]
+[INFO] stash started successfully in 120s at http://kevino-ThinkPad-T450s:7990/stash
+[INFO] Type Ctrl-D to shutdown gracefully
+[INFO] Type Ctrl-C to exit
+[WARNING] [talledLocalContainer] log4j:WARN No appenders could be found for logger (com.amazonaws.jmx.spi.SdkMBeanRegistry).
+[WARNING] [talledLocalContainer] log4j:WARN Please initialize the log4j system properly.
+[WARNING] [talledLocalContainer] log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[INFO] [talledLocalContainer] 2016-06-05 22:36:49,976 INFO  [http-nio-7990-exec-3] @UBVFCUx1356x1x0 127.0.0.1 "GET / HTTP/1.1" c.a.s.i.a.DefaultRememberMeService Invalid remember-me cookie detected (expired) - canceling the cookie
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:20 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.atlassian.plugins.rest.doclet.generators.resourcedoc.AtlassianWadlGeneratorResourceDocSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:25 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:26 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:26 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:37:26 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.atlassian.plugins.rest.doclet.generators.resourcedoc.AtlassianWadlGeneratorResourceDocSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:05 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:05 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:05 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:05 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.atlassian.plugins.rest.doclet.generators.resourcedoc.AtlassianWadlGeneratorResourceDocSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:27 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:27 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:27 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:27 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.atlassian.plugins.rest.doclet.generators.resourcedoc.AtlassianWadlGeneratorResourceDocSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:28 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:55 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+[INFO] [talledLocalContainer] INFO: Initiating Jersey application, version 'Jersey: 1.8-atlassian-16 03/23/2015 10:20 PM'
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:55 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorApplicationDoc
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:55 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.sun.jersey.server.wadl.generators.WadlGeneratorGrammarsSupport
+[INFO] [talledLocalContainer] Jun 05, 2016 10:38:55 PM com.sun.jersey.api.wadl.config.WadlGeneratorLoader loadWadlGenerator
+[INFO] [talledLocalContainer] INFO: Loading wadlGenerator com.atlassian.plugins.rest.doclet.generators.resourcedoc.AtlassianWadlGeneratorResourceDocSupport
+[INFO] [talledLocalContainer] 2016-06-05 22:40:20,815 WARN  [hz.ShutdownThread]  com.hazelcast.instance.Node [172.17.0.1]:5701 [kevino] [3.4.2-atlassian-17] Terminating forcefully...

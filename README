@@ -1,9 +1,0 @@
-
-atlas-run-standalone --product confluence --settings /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml
-atlas-run-standalone --product stash --settings /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml
-
-atlas-run --settings /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml --http-port 1990 -Datlassian.dev.mode=true
-
--Datlassian.webresource.disable.minification=true
-
-http://kevino-thinkpad-t450s:1990/confluence/rest/myrestresource/1.0/message
