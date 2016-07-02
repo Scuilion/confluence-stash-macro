@@ -14,10 +14,12 @@
                     success: function (response) {
                         repoDropDown.empty();
                         repoDropDown.prop('disabled', false);
-                        repoDropDown.append($('<option></option>').val("one").html("one"));
+                        for (i = 0; i < response.values.length; i++) {
+                            repoDropDown.append($("<option></option>").val(response.values[i].slug).html(response.values[i].name));
+                        }
                     }
                 });
-            };
+            }
             function loadProjects() {
                 AJS.$.ajax({
                     async: true,
@@ -33,14 +35,14 @@
                             "fields": {
                                 "enum": {
                                     "project": function (params, options) {
-                                        var projects = [''];
-
+                                        var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
+                                        var select = AJS.$("select", paramDiv);
+                                        select.empty();
+                                        select.append($("<option>None</option>"));
                                         for (i = 0; i < response.values.length; i++) {
-                                            projects.push(response.values[i].name);
+                                            select.append($("<option></option>").val(response.values[i].key).html(response.values[i].name));
                                         }
-                                        params.enumValues = projects;
-                                        var field = AJS.MacroBrowser.ParameterFields["enum"](params, options);
-                                        return field;
+                                        return new AJS.MacroBrowser.Field(paramDiv, select, options);
                                     },
                                     "repo": function (params, options) {
                                         var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
@@ -61,7 +63,7 @@
                         AJS.MacroBrowser.setMacroJsOverride("stash-macro", jsOverrides);
                     }
                 });
-            };
+            }
 
             loadProjects();
 
