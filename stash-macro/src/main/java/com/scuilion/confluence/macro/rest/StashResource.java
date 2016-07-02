@@ -26,7 +26,7 @@ public class StashResource {
     @AnonymousAllowed
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getProjects() throws ResponseException {
-        return Response.ok(stashConnectImpl.callStashRequest("rest/api/1.0/projects")).build();
+        return Response.ok(stashConnectImpl.makeStashRequest("rest/api/1.0/projects")).build();
     }
 
     @GET
@@ -34,6 +34,6 @@ public class StashResource {
     @AnonymousAllowed
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getRepositories(@QueryParam("projectName") String projectName) throws ResponseException {
-        return Response.ok(stashConnectImpl.callStashRequest("rest/api/1.0/projects/" + projectName + "/repos")).build();
+        return Response.ok(stashConnectImpl.makeStashRequest("rest/api/1.0/projects/" + projectName + "/repos")).build();
     }
 }

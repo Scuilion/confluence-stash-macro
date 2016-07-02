@@ -1,10 +1,16 @@
-this is a second template
-</br>
-$a_value
-$b_value
-$c_value
-</br>
-this is a second template
-</br>
-eh
+
+<table class="confluenceTable">
+    <thead>
+    <tr>
+        <th class="confluenceTh" colspan="2">
+            <span class="aui-icon aui-icon-small aui-iconfont-devtools-branch" />
+            $repo
+            $branches
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    body
+    </tbody>
+</table>
 

@@ -38,7 +38,7 @@
     <xhtml-macro name="stash-macro"
                  title="Branch With Filter"
                  class="com.scuilion.confluence.macro.StashMacro"
-                 icon="/download/resources/com.scuilion.confluence.macro/images/browserLogo.png"
+                 icon="/download/resources/com.scuilion.confluence.macro/images/branch.png"
                  key="stash-macro">
         <category name="development"/>
         <parameters>
