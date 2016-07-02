@@ -7,12 +7,16 @@ import com.atlassian.confluence.renderer.radeox.macros.MacroUtils;
 import com.atlassian.confluence.spaces.SpaceManager;
 import com.atlassian.confluence.util.velocity.VelocityUtils;
 import com.atlassian.confluence.xhtml.api.XhtmlContent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
 
-public class StashMacro implements Macro
-{
+public class StashMacro implements Macro {
+
+    private static final Logger log = LoggerFactory.getLogger(StashMacro.class);
+
     private final XhtmlContent xhtmlUtils;
     private final StashConnectImpl stashConnectImpl;
 
@@ -25,57 +29,9 @@ public class StashMacro implements Macro
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException
     {
         Map velocityContext = MacroUtils.defaultVelocityContext();
-
-
-//        String body = conversionContext.getEntity().getBodyAsString();
-//
-//        final List<MacroDefinition> macros = new ArrayList<MacroDefinition>();
-//
-//        try
-//        {
-//            xhtmlUtils.handleMacroDefinitions(body, conversionContext, new MacroDefinitionHandler()
-//            {
-//                @Override
-//                public void handle(MacroDefinition macroDefinition)
-//                {
-//                    macros.add(macroDefinition);
-//                }
-//            });
-//        }
-//        catch (XhtmlException e)
-//        {
-//            throw new MacroExecutionException(e);
-//        }
-//
-//        StringBuilder builder = new StringBuilder();
-//        builder.append("<p>");
-//        if (!macros.isEmpty())
-//        {
-//            builder.append("<table width=\"50%\">");
-//            builder.append("<tr><th>Macro Name</th><th>Has Body?</th></tr>");
-//            for (MacroDefinition defn : macros)
-//            {
-//                builder.append("<tr>");
-//                builder.append("<td>").append(defn.getName()).append("</td><td>").append(defn.hasBody()).append("</td>");
-//                builder.append("</tr>");
-//            }
-//            builder.append("</table>");
-//            String lastLine = "init";
-//            try {
-//                lastLine = stashConnectImpl.getSomething("rest/api/1.0/projects");
-//            } catch (ResponseException e) {
-//                lastLine = e.toString();
-//            }
-//            return lastLine;
-//        }
-//        else
-//        {
-//            builder.append("You've done built yourself a macro! Nice work.");
-//        }
-//        builder.append("</p>");
-
-//        this.stashConnectorService
-        velocityContext.put("a_value", 15);
+        velocityContext.put("a_value", parameters.get("project"));
+        velocityContext.put("b_value", parameters.get("repo"));
+        velocityContext.put("c_value", parameters.get("filter"));
         return VelocityUtils.getRenderedTemplate("templates/branches-with-filters.vm", velocityContext);
     }
     
