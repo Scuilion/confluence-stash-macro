@@ -17,16 +17,24 @@ public class StashResource {
 
   private final StashConnectImpl stashConnectImpl;
 
-  StashResource(@Nonnull StashConnectImpl stashConnectImpl) {
+  StashResource(@Nonnull StashConnectImpl stashConnectImpl) throws ResponseException {
     this.stashConnectImpl = stashConnectImpl;
   }
     //http://kevino-thinkpad-t450s:1990/confluence/rest/stash/1.0/projects
 
   @GET
+  @Path("projects")
   @AnonymousAllowed
   @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-  public Response getMessage(@QueryParam("key") String key) throws ResponseException {
+  public Response getProjects() throws ResponseException {
     return Response.ok(stashConnectImpl.callStashRequest("rest/api/1.0/projects")).build();
   }
 
+  @GET
+  @Path("repositories")
+  @AnonymousAllowed
+  @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+  public Response getRepositories(@QueryParam("projectName") String projectName) throws ResponseException {
+    return Response.ok(stashConnectImpl.callStashRequest("rest/api/1.0/projects")).build();
+  }
 }

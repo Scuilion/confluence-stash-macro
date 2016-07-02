@@ -1,64 +1,70 @@
-(function($) {
-    $(document).ready(function() {
-        console.log("loading stash-macro.js")
-        // var StashMacro = function() {};
-        //
-        // StashMacro.prototype.fields = {
-        //     "string":{
-        //         "title" : function(param, options){
-        //             return new AJS.MacroBrowser.Field()
-        //         }
-        //     }
-        // }
-        // AJS.MacroBrowser.Macros["stash-macro"]
-        function callRest() {
-            AJS.$.ajax({
-                async: true,
-                url: AJS.contextPath() + "/rest/myrestresource/1.0/stash",
-                //rest/myrestresource/1.0/stash myrestresource is defined in plugins.xml
-                dataType: 'json',
-                timeout: 10000,
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                    console.log("THERE WAS AN ERROR");
-                },
-                success: function (response) {
-                    console.log(response);
-                    var jsOverrides = {
-                        "fields": {
-                            "enum": {
-                                "project": function (params, options) {
-                                    var projects = [''];
-                                    
-                                    for ( i=0; i < response.values.length; i++) {
-                                        projects.push(response.values[i].name);
+(function ($) {
+    $(document).ready(function () {
+
+            function updateRepos(repoDropDown, projectName) {
+                AJS.$.ajax({
+                    async: true,
+                    url: AJS.contextPath() + "/rest/stash_resource/1.0/stash/repositories?projectName=" + projectName,
+                    dataType: 'json',
+                    timeout: 10000,
+                    error: function (xhr, textStatus, errorThrown) {
+                        AJS.logError(errorThrown);
+                        console.log("THERE WAS AN ERROR");
+                    },
+                    success: function (response) {
+                        repoDropDown.empty();
+                        repoDropDown.prop('disabled', false);
+                        repoDropDown.append($('<option></option>').val("one").html("one"));
+                    }
+                });
+            };
+            function loadProjects() {
+                AJS.$.ajax({
+                    async: true,
+                    url: AJS.contextPath() + "/rest/stash_resource/1.0/stash/projects",
+                    dataType: 'json',
+                    timeout: 10000,
+                    error: function (xhr, textStatus, errorThrown) {
+                        AJS.logError(errorThrown);
+                        console.log("THERE WAS AN ERROR");
+                    },
+                    success: function (response) {
+                        var jsOverrides = {
+                            "fields": {
+                                "enum": {
+                                    "project": function (params, options) {
+                                        var projects = [''];
+
+                                        for (i = 0; i < response.values.length; i++) {
+                                            projects.push(response.values[i].name);
+                                        }
+                                        params.enumValues = projects;
+                                        var field = AJS.MacroBrowser.ParameterFields["enum"](params, options);
+                                        return field;
+                                    },
+                                    "repo": function (params, options) {
+                                        var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
+                                        var select = AJS.$("select", paramDiv);
+                                        // var foo = $("select#macro-param-repo") //.prop('disabled', true);
+                                        select.empty();
+                                        select.append($("<option>None</option>").attr("value", ""));
+                                        select.prop('disabled', true);
+
+                                        $('select#macro-param-project').change(function () {
+                                            updateRepos(select, this.value);
+                                        });
+                                        return new AJS.MacroBrowser.Field(paramDiv, select, options);
                                     }
-                                    params.enumValues = projects;
-                                    var field = AJS.MacroBrowser.ParameterFields["enum"](params, options);
-                                    return field;
                                 }
                             }
-                        }
-                    };
-                    console.log(jsOverrides);
-                    AJS.MacroBrowser.setMacroJsOverride("stash-macro", jsOverrides);
-                }
-            });
-        }
-
-        var jsOverrides = {
-
-            "fields": {
-                "string": {
-                    "name-override": function (params, options) {
-                        var field = AJS.MacroBrowser.ParameterFields["string"](params, options);
-                        field.setValue("another desiredValue");
-                        return field;
+                        };
+                        AJS.MacroBrowser.setMacroJsOverride("stash-macro", jsOverrides);
                     }
-                }
-            }
-        };
-        callRest();
-        // AJS.MacroBrowser.setMacroJsOverride("stash-macro", jsOverrides);
-    });
+                });
+            };
+
+            loadProjects();
+
+        }
+    );
 })(AJS.$);
