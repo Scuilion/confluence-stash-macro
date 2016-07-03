@@ -89,7 +89,7 @@ public class StashConnectImpl implements StashConnect {
             } catch (IOException e) {
                 throw new ResponseException(e);
             }
-            this.stashUser = response.getHeader("X-AUSERNAME");
+//            this.stashUser = response.getHeader("X-AUSERNAME");
         }
 
         public String getStashUser() {

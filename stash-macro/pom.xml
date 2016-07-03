@@ -40,6 +40,12 @@
             <version>${confluence.rest-common.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -98,6 +104,8 @@
         <atlassian.upm.version>2.18.4</atlassian.upm.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <confluence.rest-common.version>5.0.1</confluence.rest-common.version>
+
+        <version.lombok>1.16.8</version.lombok>
 
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
     </properties>

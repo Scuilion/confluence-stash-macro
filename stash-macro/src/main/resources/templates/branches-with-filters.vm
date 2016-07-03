@@ -3,14 +3,19 @@
     <thead>
     <tr>
         <th class="confluenceTh" colspan="2">
-            <span class="aui-icon aui-icon-small aui-iconfont-devtools-branch" />
+            <span class="aui-icon aui-icon-small aui-iconfont-devtools-branch" ></span>
             $repo
-            $branches
         </th>
     </tr>
     </thead>
     <tbody>
-    body
+        #foreach( $ban in $branches)
+            <tr class="confluenceTr">
+                <td class="confluenceTd">
+                    $ban
+                </td>
+            </tr>
+        #end
     </tbody>
 </table>
 

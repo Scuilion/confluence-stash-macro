@@ -7,6 +7,8 @@ import com.atlassian.confluence.renderer.radeox.macros.MacroUtils;
 import com.atlassian.confluence.util.velocity.VelocityUtils;
 import com.atlassian.sal.api.net.ResponseException;
 import com.google.common.base.Strings;
+import com.scuilion.confluence.macro.rest.dto.Branch;
+import com.scuilion.confluence.macro.rest.dto.Branches;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -16,7 +18,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.Nonnull;
 import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +40,7 @@ public class StashMacro implements Macro {
         List<String> branches = retrieveBranches(project, repo, filter);
         Map velocityContext = MacroUtils.defaultVelocityContext();
         velocityContext.put("repo", repo);
-        velocityContext.put("branches", "temporary");
+        velocityContext.put("branches", branches);
         return VelocityUtils.getRenderedTemplate("templates/branches-with-filters.vm", velocityContext);
     }
 
@@ -50,30 +52,28 @@ public class StashMacro implements Macro {
             .path(repo)
             .path("branches");
 
-        if(!Strings.isNullOrEmpty(filter)) {
+        if (!Strings.isNullOrEmpty(filter)) {
             uriBuilder.queryParam("filterText", filter);
         }
-        log.error("-----------------------------------------------------");
-        log.error(uriBuilder.build().getPath());
-        log.error("-----------------------------------------------------");
-
+        Branches branches = new Branches();
         try {
-            String response = stashConnectImpl.makeStashRequest(uriBuilder.build().getPath());
-
+            String response = stashConnectImpl.makeStashRequest(uriBuilder.build().toString());
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.readValue(response, Object.class);
+            branches = objectMapper.readValue(response, Branches.class);
         } catch (ResponseException re) {
             log.error("Failure to find branches.", re);
         } catch (JsonParseException jpe) {
-            log.error("Failure to find branches.", jpe);
+            log.error("Failure to parse branches.", jpe);
         } catch (JsonMappingException jme) {
-            log.error("Failure to find branches.", jme);
+            log.error("Failure to parse branches.", jme);
         } catch (IOException ioe) {
-            log.error("Failure to find branches.", ioe);
+            log.error("Failure to parse branches.", ioe);
         }
-
-//        return stashConnectImpl.callStashRequest(uriBuilder.toString());
-        return Collections.EMPTY_LIST;
+        List<String> branchNames = new ArrayList<>();
+        for (Branch b : branches.getValues()) {
+            branchNames.add(b.getDisplayId());
+        }
+        return branchNames;
     }
 
     @Override
