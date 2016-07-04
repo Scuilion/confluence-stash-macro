@@ -13,9 +13,10 @@
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="stash-macro"/>
     <resource type="download" name="images/" location="/images"/>
-    <resource key="icons" name="images/" location="images" />
+    <resource key="icons" name="images/" location="images"/>
 
-    <rest name="Stash Rest Resource" i18n-name-key="stash-rest-resource.name" key="stash-rest-resource" path="/stash_resource" version="1.0">
+    <rest name="Stash Rest Resource" i18n-name-key="stash-rest-resource.name" key="stash-rest-resource"
+          path="/stash_resource" version="1.0">
         <description key="stash-rest-resource.description">A simplified Stash Rest Resource</description>
     </rest>
 
@@ -43,9 +44,18 @@
         <category name="development"/>
         <parameters>
 
-            <parameter name="project" type="enum" required="true" />
-            <parameter name="repo" type="enum" required="true" />
-            <parameter name="filter" type="string" required="false" />
+            <parameter name="project" type="enum" required="true">
+                <option key="showNameInPlaceholder" value="false"/>
+                <option key="showValueInPlaceholder" value="true"/>
+            </parameter>
+            <parameter name="repo" type="enum" required="true">
+                <option key="showNameInPlaceholder" value="false"/>
+                <option key="showValueInPlaceholder" value="true"/>
+            </parameter>
+            <parameter name="filter" type="string" required="false">
+                <option key="showNameInPlaceholder" value="false"/>
+                <option key="showValueInPlaceholder" value="false"/>
+            </parameter>
 
         </parameters>
 
