@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 @Path("/stash")
 public class StashResource {
@@ -26,7 +27,11 @@ public class StashResource {
     @AnonymousAllowed
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Response getProjects() throws ResponseException {
-        return Response.ok(stashConnectImpl.makeStashRequest("rest/api/1.0/projects")).build();
+        UriBuilder uriBuilder = UriBuilder.fromPath("")
+            .path("rest/api/1.0/projects/")
+            .queryParam("start", "0")
+            .queryParam("limit", "1000");
+        return Response.ok(stashConnectImpl.makeStashRequest(uriBuilder.build().toString())).build();
     }
 
     @GET
