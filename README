@@ -1,5 +1,5 @@
 
-![alt tag](img/Branches.png)
+![Branches](https://raw.githubusercontent.com/Scuilion/confluence-stash-macro/master/img/Branches.png)
 
 For Development
 atlas-run-standalone --product confluence --settings /usr/share/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/conf/settings.xml --http-port 1990
