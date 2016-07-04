@@ -1,9 +1,12 @@
 (function ($) {
 
-   var StashMacro = function () {
-   };
+    var StashMacro = function () {
+    };
+    var originalProject;
+    var originalRepo;
 
-   StashMacro.prototype.fields = {
+
+    StashMacro.prototype.fields = {
         "enum": {
             "project": function (param, options) {
                 var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
@@ -32,9 +35,6 @@
             }
         }
     };
-    
-    var originalProject;
-    var originalRepo;
 
     StashMacro.prototype.beforeParamsSet = function (selectedParams, macroSelected) {
         originalProject = selectedParams.project;
@@ -42,18 +42,24 @@
         return selectedParams;
     };
     
+    StashMacro.prototype.beforeParamsRetrieved = function(params) {
+        params.projectName = $('select#macro-param-project option:selected').text();
+        params.repoName = $('select#macro-param-repo option:selected').text();
+        return params;
+    };
+    
     function setupProject(projectDropDown) {
-        if(originalProject) {
+        if (originalProject) {
             $('select#macro-param-project').val(originalProject).change();
         }
     }
-    
+
     function setupRepo(repoDropDown) {
-        if(originalRepo) {
+        if (originalRepo) {
             $('select#macro-param-repo').val(originalRepo).change();
         }
     }
-    
+
     function loadProjects(projectDropDown) {
         AJS.$.ajax({
             async: true,

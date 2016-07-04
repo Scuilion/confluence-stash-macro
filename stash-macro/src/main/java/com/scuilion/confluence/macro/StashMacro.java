@@ -36,10 +36,11 @@ public class StashMacro implements Macro {
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         String project = parameters.get("project");
         String repo = parameters.get("repo");
+        String repoName = parameters.get("repoName");
         String filter = parameters.get("filter");
         List<String> branches = retrieveBranches(project, repo, filter);
         Map velocityContext = MacroUtils.defaultVelocityContext();
-        velocityContext.put("repo", repo);
+        velocityContext.put("repoName", repoName);
         velocityContext.put("branches", branches);
         return VelocityUtils.getRenderedTemplate("templates/branches-with-filters.vm", velocityContext);
     }

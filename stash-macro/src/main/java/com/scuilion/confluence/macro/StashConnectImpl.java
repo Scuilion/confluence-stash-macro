@@ -74,11 +74,6 @@ public class StashConnectImpl implements StashConnect {
         private String stashUser;
 
         public void handle(Response response) throws ResponseException {
-            log.error("does it get here");
-            if (response != null && response.getResponseBodyAsStream() != null) {
-                log.error("XXX:" + response.getResponseBodyAsString());
-                log.error(String.valueOf(response.getHeaders()));
-            }
             if (!response.isSuccessful()) {
                 throw new ResponseStatusException(response.getStatusText(), response);
             }
@@ -89,7 +84,6 @@ public class StashConnectImpl implements StashConnect {
             } catch (IOException e) {
                 throw new ResponseException(e);
             }
-//            this.stashUser = response.getHeader("X-AUSERNAME");
         }
 
         public String getStashUser() {

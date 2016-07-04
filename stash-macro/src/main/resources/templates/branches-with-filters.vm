@@ -4,15 +4,15 @@
     <tr>
         <th class="confluenceTh" colspan="2">
             <span class="aui-icon aui-icon-small aui-iconfont-devtools-branch" ></span>
-            $repo
+            $repoName
         </th>
     </tr>
     </thead>
     <tbody>
-        #foreach( $ban in $branches)
+        #foreach( $banch in $branches)
             <tr class="confluenceTr">
                 <td class="confluenceTd">
-                    $ban
+                    $banch
                 </td>
             </tr>
         #end

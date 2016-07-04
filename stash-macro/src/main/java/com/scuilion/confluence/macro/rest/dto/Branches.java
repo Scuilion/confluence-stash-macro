@@ -18,5 +18,6 @@ public class Branches {
 
     int size;
     List<Branch> values;
+    boolean isLastPage;
 
 }

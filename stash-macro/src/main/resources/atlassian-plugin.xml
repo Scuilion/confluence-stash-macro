@@ -48,10 +48,12 @@
                 <option key="showNameInPlaceholder" value="false"/>
                 <option key="showValueInPlaceholder" value="true"/>
             </parameter>
+
             <parameter name="repo" type="enum" required="true">
                 <option key="showNameInPlaceholder" value="false"/>
                 <option key="showValueInPlaceholder" value="true"/>
             </parameter>
+
             <parameter name="filter" type="string" required="false">
                 <option key="showNameInPlaceholder" value="false"/>
                 <option key="showValueInPlaceholder" value="false"/>
