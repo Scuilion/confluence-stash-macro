@@ -48,7 +48,7 @@
             timeout: 10000,
             error: function (xhr, textStatus, errorThrown) {
                 AJS.logError(errorThrown);
-                console.log("THERE WAS AN ERROR: " errorThrown);
+                console.log("THERE WAS AN ERROR: " + errorThrown);
             },
             success: function (response) {
                 projectDropDown.empty();
@@ -68,7 +68,7 @@
             timeout: 10000,
             error: function (xhr, textStatus, errorThrown) {
                 AJS.logError(errorThrown);
-                console.log("THERE WAS AN ERROR:" errorThrown);
+                console.log("THERE WAS AN ERROR:" + errorThrown);
             },
             success: function (response) {
                 repoDropDown.empty();
