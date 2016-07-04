@@ -10,7 +10,6 @@
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
-    <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="stash-macro"/>
     <resource type="download" name="images/" location="/images"/>
     <resource key="icons" name="images/" location="images"/>
@@ -20,7 +19,6 @@
         <description key="stash-rest-resource.description">A simplified Stash Rest Resource</description>
     </rest>
 
-    <!-- add our web resources -->
     <web-resource key="stash-macro-resources"
                   name="stash-macro Web Resources">
         <context>editor</context>
@@ -74,8 +72,6 @@
                       interface="com.atlassian.applinks.api.ApplicationLinkService"/>
     <component-import key="entityLinkService"
                       interface="com.atlassian.applinks.api.EntityLinkService"/>
-    <component-import key="i18nResolver"
-                      interface="com.atlassian.sal.api.message.I18nResolver"/>
     <component-import key="authenticationConfigurationManager"
                       interface="com.atlassian.applinks.spi.auth.AuthenticationConfigurationManager"/>
     <component-import key="pluginAccessor"

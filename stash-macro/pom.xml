@@ -6,7 +6,11 @@
     <groupId>com.scuilion.confluence.macro</groupId>
     <artifactId>stash-macro</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>confluence-stash-plugin</name>
+    <name>Stash Macro Plugin</name>
+    <description>A limited feature macro for viewing branches</description>
+    <organization>
+        <name>Kevin O'Neal</name>
+    </organization>
 
     <packaging>atlassian-plugin</packaging>
 
