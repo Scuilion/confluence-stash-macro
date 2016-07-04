@@ -88,7 +88,6 @@
             success: function (response) {
                 repoDropDown.empty();
                 repoDropDown.append($("<option>None</option>").attr("value", ""));
-                repoDropDown.empty();
                 repoDropDown.prop('disabled', false);
                 for (i = 0; i < response.values.length; i++) {
                     repoDropDown.append($("<option></option>").val(response.values[i].slug).html(response.values[i].name));
