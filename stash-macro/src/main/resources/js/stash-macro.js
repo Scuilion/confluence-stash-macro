@@ -9,15 +9,17 @@
                 var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
                 var projectDropDown = AJS.$("select", paramDiv);
                 loadProjects(projectDropDown);
-
                 return new AJS.MacroBrowser.Field(paramDiv, projectDropDown, options);
             },
             "repo": function (param, options) {
                 var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
                 var repoDropDown = AJS.$("select", paramDiv);
-                // if(!originalRepo) {
-                repoDropDown.prop('disabled', true);
-                // }
+                if (!originalRepo) {
+                    repoDropDown.prop('disabled', true);
+                } else {
+                    repoDropDown.prop('disabled', false);
+                    setupRepo(repoDropDown);
+                }
                 $('select#macro-param-project').change(function () {
                     updateRepos(repoDropDown, this.value);
                 });
@@ -39,7 +41,19 @@
         originalRepo = selectedParams.repo;
         return selectedParams;
     };
-
+    
+    function setupProject(projectDropDown) {
+        if(originalProject) {
+            $('select#macro-param-project').val(originalProject).change();
+        }
+    }
+    
+    function setupRepo(repoDropDown) {
+        if(originalRepo) {
+            $('select#macro-param-repo').val(originalRepo).change();
+        }
+    }
+    
     function loadProjects(projectDropDown) {
         AJS.$.ajax({
             async: true,
@@ -56,6 +70,7 @@
                 for (i = 0; i < response.values.length; i++) {
                     projectDropDown.append($("<option></option>").val(response.values[i].key).html(response.values[i].name));
                 }
+                setupProject(projectDropDown);
             }
         });
     }
@@ -78,6 +93,7 @@
                 for (i = 0; i < response.values.length; i++) {
                     repoDropDown.append($("<option></option>").val(response.values[i].slug).html(response.values[i].name));
                 }
+                setupRepo(repoDropDown);
             }
         });
     }
