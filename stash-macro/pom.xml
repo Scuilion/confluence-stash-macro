@@ -10,6 +10,7 @@
     <description>A limited feature macro for viewing branches</description>
     <organization>
         <name>Kevin O'Neal</name>
+        <url>https://github.com/Scuilion/confluence-stash-macro</url>
     </organization>
 
     <packaging>atlassian-plugin</packaging>
