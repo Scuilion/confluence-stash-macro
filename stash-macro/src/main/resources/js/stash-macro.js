@@ -17,6 +17,7 @@
             "repo": function (param, options) {
                 var paramDiv = AJS.$(Confluence.Templates.MacroBrowser.macroParameterSelect());
                 var repoDropDown = AJS.$("select", paramDiv);
+                console.log("here");
                 if (!originalRepo) {
                     repoDropDown.prop('disabled', true);
                 } else {
@@ -82,25 +83,30 @@
     }
 
     function updateRepos(repoDropDown, projectName) {
-        AJS.$.ajax({
-            async: true,
-            url: AJS.contextPath() + "/rest/stash_resource/1.0/stash/repositories?projectName=" + projectName,
-            dataType: 'json',
-            timeout: 10000,
-            error: function (xhr, textStatus, errorThrown) {
-                AJS.logError(errorThrown);
-                console.log("THERE WAS AN ERROR:" + errorThrown);
-            },
-            success: function (response) {
-                repoDropDown.empty();
-                repoDropDown.append($("<option>None</option>").attr("value", ""));
-                repoDropDown.prop('disabled', false);
-                for (i = 0; i < response.values.length; i++) {
-                    repoDropDown.append($("<option></option>").val(response.values[i].slug).html(response.values[i].name));
+        if(projectName !== "None") {
+            AJS.$.ajax({
+                async: true,
+                url: AJS.contextPath() + "/rest/stash_resource/1.0/stash/repositories?projectName=" + projectName,
+                dataType: 'json',
+                timeout: 10000,
+                error: function (xhr, textStatus, errorThrown) {
+                    AJS.logError(errorThrown);
+                    console.log("THERE WAS AN ERROR:" + errorThrown);
+                },
+                success: function (response) {
+                    repoDropDown.empty();
+                    repoDropDown.append($("<option>None</option>").attr("value", ""));
+                    repoDropDown.prop('disabled', false);
+                    for (i = 0; i < response.values.length; i++) {
+                        repoDropDown.append($("<option></option>").val(response.values[i].slug).html(response.values[i].name));
+                    }
+                    setupRepo(repoDropDown);
                 }
-                setupRepo(repoDropDown);
-            }
-        });
+            });
+        }else {
+            repoDropDown.empty();
+            repoDropDown.append($("<option>None</option>").attr("value", ""));
+        }
     }
 
     AJS.MacroBrowser.setMacroJsOverride("stash-macro", new StashMacro());
