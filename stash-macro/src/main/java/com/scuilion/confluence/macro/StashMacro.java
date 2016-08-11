@@ -26,25 +26,43 @@ public class StashMacro implements Macro {
 
     private final StashConnectImpl stashConnectImpl;
 
-    public StashMacro(@Nonnull StashConnectImpl stashConnectImpl) {
+    public StashMacro(@Nonnull final StashConnectImpl stashConnectImpl) {
         this.stashConnectImpl = stashConnectImpl;
     }
 
     @Override
-    public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
-        String project = parameters.get("project");
-        String repo = parameters.get("repo");
-        String repoName = parameters.get("repoName");
-        String filter = parameters.get("filter");
-        List<String> branches = retrieveBranches(project, repo, filter);
-        Map velocityContext = MacroUtils.defaultVelocityContext();
+    public String execute(final Map<String, String> parameters, final String bodyContent, final ConversionContext conversionContext) throws MacroExecutionException {
+        final String project = parameters.get("project");
+        final String repo = parameters.get("repo");
+        final String repoName = parameters.get("repoName");
+        final String filter = parameters.get("filter");
+        final List<String> branches = retrieveBranches(project, repo, filter);
+        final Map velocityContext = MacroUtils.defaultVelocityContext();
         velocityContext.put("repoName", repoName);
         velocityContext.put("branches", branches);
+        velocityContext.put("linkUrl", createRepoLinkUrl(project, repo));
         return VelocityUtils.getRenderedTemplate("templates/branches-with-filters.vm", velocityContext);
     }
 
-    private List<String> retrieveBranches(String project, String repo, String filter) {
-        UriBuilder uriBuilder = UriBuilder.fromPath("")
+    private String createRepoLinkUrl(final String project, final String repo ){
+//            http://kevino-ThinkPad-T450s:7990/stash
+//            http://kevino-thinkpad-t450s:7990/stash/projects/PROJECT_1/repos/rep_1/browse
+        String fullUrl = "";
+        try {
+            final UriBuilder uriBuilder = UriBuilder.fromPath(stashConnectImpl.getStashApplicationLink().getDisplayUrl().toString());
+            fullUrl = uriBuilder
+                .path("projects")
+                .path(project)
+                .path("repos")
+                .path(repo)
+                .path("browse").build().toString();
+        } catch (final ResponseException e) {
+        }
+        return fullUrl;
+    }
+
+    private List<String> retrieveBranches(final String project, final String repo, final String filter) {
+        final UriBuilder uriBuilder = UriBuilder.fromPath("")
             .path("rest/api/1.0/projects/")
             .path(project)
             .path("repos")
@@ -56,16 +74,16 @@ public class StashMacro implements Macro {
         }
         Branches branches = new Branches();
         try {
-            String response = stashConnectImpl.makeStashRequest(uriBuilder.build().toString());
-            ObjectMapper objectMapper = new ObjectMapper();
+            final String response = stashConnectImpl.makeStashRequest(uriBuilder.build().toString());
+            final ObjectMapper objectMapper = new ObjectMapper();
             branches = objectMapper.readValue(response, Branches.class);
-        } catch (ResponseException re) {
+        } catch (final ResponseException re) {
             log.error("Failure to find branches.", re);
-        } catch (IOException ioe) {
+        } catch (final IOException ioe) {
             log.error("Failure to parse branches.", ioe);
         }
-        List<String> branchNames = new ArrayList<>();
-        for (Branch b : branches.getValues()) {
+        final List<String> branchNames = new ArrayList<>();
+        for (final Branch b : branches.getValues()) {
             branchNames.add(b.getDisplayId());
         }
         return branchNames;

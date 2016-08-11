@@ -4,7 +4,8 @@
     <tr>
         <th class="confluenceTh" colspan="2">
             <span class="aui-icon aui-icon-small aui-iconfont-devtools-branch" ></span>
-            $repoName
+            <a href=$linkUrl target="_blank">$repoName</a>
+
         </th>
     </tr>
     </thead>
